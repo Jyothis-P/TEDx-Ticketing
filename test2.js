@@ -168,6 +168,11 @@ function getlog(user)
         if (!doc.exists) {
             console.log('No such document!');
             action="Did not find the user";
+            
+
+        } else {
+            console.log('Document data:', doc.data());
+            
             let docRef = db.collection('logs').doc(user.timeStamp);
 
             docRef.update({
@@ -177,10 +182,6 @@ function getlog(user)
        
            });
            console.log('details added')
-
-        } else {
-            console.log('Document data:', doc.data());
-          //  console.log(doc.data().link);
             action="user";
         }
     })
@@ -189,3 +190,28 @@ function getlog(user)
     });
  
 }
+
+function blockUser(seatNo)
+{
+    db.collection('seats').doc(seatNo).get()
+
+    .then(doc => {
+        if(!doc.exists){
+            console.log('Couldnt find seat')
+            action="Seat not valid";
+        }
+        else{
+            let docRef = db.collection('seats').doc(seatNo);
+            docRef.update({
+                status: "blocked"
+            }) 
+            console.log('changed');
+        }
+    })
+    .catch(err => {
+        console.log('Error getting document', err);
+    });
+ 
+}
+
+blockUser("S!")
