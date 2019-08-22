@@ -191,7 +191,7 @@ function checkIpAddress(currentIp){
  
 }  */
 
-function blockUser(seatNo)
+function blockUser(user,seatNo)
 {
     {
             let docRef = db.collection('seats').doc(seatNo);
@@ -201,7 +201,7 @@ function blockUser(seatNo)
             .then(doc => {
                 console.log('changed'); 
                 action="blocked user";
-                log(doc.data().user,action);
+                log(user,action);
                                
             })
             .catch(err => {
