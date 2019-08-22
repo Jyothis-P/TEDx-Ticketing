@@ -160,7 +160,7 @@ function checkIpAddress(currentIp){
 }
 
 
-function getlog(user)
+/* function getlog(user)
 {
     db.collection('logs').doc(user.timeStamp).get()
     
@@ -189,29 +189,28 @@ function getlog(user)
         console.log('Error getting document', err);
     });
  
-}
+}  */
 
 function blockUser(seatNo)
 {
-    db.collection('seats').doc(seatNo).get()
-
-    .then(doc => {
-        if(!doc.exists){
-            console.log('Couldnt find seat')
-            action="Seat not valid";
-        }
-        else{
+    {
             let docRef = db.collection('seats').doc(seatNo);
             docRef.update({
                 status: "blocked"
             }) 
-            console.log('changed');
+            .then(doc => {
+                console.log('changed'); 
+                action="blocked user";
+                log(doc.data().user,action);
+                               
+            })
+            .catch(err => {
+                console.log('Error blocking seat: ' + seatNo,err);
+            });
+        
+            
         }
-    })
-    .catch(err => {
-        console.log('Error getting document', err);
-    });
- 
 }
+    
 
-blockUser("S!")
+ blockUser("S!")
