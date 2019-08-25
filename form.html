@@ -1,28 +1,46 @@
+<!DOCTYPE html>
+
 <html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title></title>
+
+</head>
+
 <body>
 
-<h2>Enter your details</h2>
 
 
-<form>
-  Name:<br>
-  <input type="text" name="firstname">
-  <br>
-  Phone number:<br>
-  <input type="text" name="lastname">
-  <br>
-  Food Preference:<br>
-  <input type="radio" name="food" value="veg"> Veg<br>
-  <input type="radio" name="food" value="non-veg"> Non-veg<br>
-  <br>
-  Email:<br>
-  <input type="text" name="email">
-  <br>
-  Seat Number:<br>
-  <input type="text" name="seatno">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+    <h2>Enter your details</h2>
+        <form action="https://us-central1-tedxcusat-2078b.cloudfunctions.net/addMessage" method="POST">
+        <!-- <form action="/bookseat" method="POST"> -->
+            Name:<br>
+            <input type="text" name="name">
+            <br>
+            Phone number:<br>
+            <input type="text" name="phone">
+            <br>
+            Food Preference:<br>
+            <input type="radio" name="food" value="veg"> Veg<br>
+            <input type="radio" name="food" value="non-veg"> Non-veg<br>
+            <br>
+            Email:<br>
+            <input type="text" name="email">
+            <br>
+            <br>
+            Seat Type:<br>
+            <input type="text" name="type">
+            <br>
+            Seat Number:<br>
+            <input type="text" name="seat">
+            <br><br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
 
-</body>
+    </body>
+
 </html>
