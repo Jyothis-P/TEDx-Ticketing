@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== Title ========== -->
+    <title> TedX Seats </title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/pongstagr.am.css" />
+</head>
+
+<body>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyACYpVnmG2m9YQtIG82mWNh6WJV_49J7kw",
+            authDomain: "tedx-a0b18.firebaseapp.com",
+            databaseURL: "https://tedx-a0b18.firebaseio.com",
+            projectId: "tedx-a0b18",
+            storageBucket: "tedx-a0b18.appspot.com",
+            messagingSenderId: "208199290171",
+            appId: "1:208199290171:web:632764dead049e8f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="script.js"></script>
+    <button id="btnSeating">Fill Seating</button>
+    <h2>Enter your details</h2>
+    <form action="https://us-central1-tedx-a0b18.cloudfunctions.net/addMessage" method="POST">
+    <!-- <form action="/bookseat" method="POST"> -->
+        Name:<br>
+        <input type="text" name="name">
+        <br>
+        Phone number:<br>
+        <input type="text" name="phone">
+        <br>
+        Food Preference:<br>
+        <input type="radio" name="food" value="veg"> Veg<br>
+        <input type="radio" name="food" value="non-veg"> Non-veg<br>
+        <br>
+        Email:<br>
+        <input type="text" name="email">
+        <br>
+        <br>
+        Seat Type:<br>
+        <input type="text" name="type">
+        <br>
+        <div id="messagePanel" class="messagePanel"></div>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
